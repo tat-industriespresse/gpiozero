@@ -1,0 +1,19 @@
+from gpiozero import MotionSensor
+from time import sleep
+
+# Создаем объект гироскопа
+gyro = MotionSensor(4)  # Подставьте соответствующий пин
+
+try:
+    while True:
+        # Проверяем, активен ли гироскоп
+        if gyro.motion_detected:
+            print("Гироскоп активен!")
+            # Ваш код для управления гироскопом
+        else:
+            print("Гироскоп неактивен.")
+            
+        sleep(1)
+
+except KeyboardInterrupt:
+    print("Программа завершена.")
